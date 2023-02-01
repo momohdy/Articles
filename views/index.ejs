@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="ar">
+  <%- include("./partials/head.ejs") %>
+
+  <body id="body">
+    <%- include("./partials/header.ejs") %>
+
+    <div id="mydiv"></div>
+
+    <main id="main">
+      <section>
+        <!-- to create articles sections-->
+        <h1>Trinding articles &#128293;</h1>
+        <div class="parent-of-articles">
+
+
+          <!-- show data from mongo database , arrArticle = result = araay of objects from mongo database -->
+          <% arrArticle.forEach(item => { %>
+
+          <article>
+            <h2>
+              <%= item.title %> 
+            </h2>
+            <p>
+            
+              <%= item.summary %>
+            
+              <a href="/all-articles/<%= item._id %> ">show more</a>
+            </p>
+          </article>
+
+          <% }); %>
+
+
+
+        </div>
+      </section>
+    </main>
+    <%- include("./partials/footer.ejs") %>
+  </body>
+</html>

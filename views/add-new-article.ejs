@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="ar">
+  
+  <%- include("./partials/head.ejs") %>
+
+  <body id="body">
+    <%- include("./partials/header.ejs") %>
+
+    <main>
+      <section>
+        <h1>Create new Article</h1>
+
+        <form method="post" action="/all-articles">
+          <label for="title">Article Title:</label>
+          <input name="title" id="title" type="text" required />
+
+          <label for="summary">Article summary:</label>
+          <input name="summary" id="summary" type="text" required />
+
+          <label for="body">Article Body:</label>
+          <textarea name="body" id="body" required> </textarea>
+
+          <button class="create" >Create</button>
+        </form>
+      </section>
+    </main>
+
+    <%- include("./partials/footer.ejs") %>
+  </body>
+</html>
