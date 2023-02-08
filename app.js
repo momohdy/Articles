@@ -9,9 +9,7 @@ app.use(express.static("public"));
 // make post request
 app.use(express.urlencoded({ extended: true }));
 // import all-articles PATH file
-const allArticlesRouter  = require('./routes/all-articles')
-// to uploud website , after npm install helmet
-const helmet = require("helmet");
+const allArticlesRouter = require("./routes/all-articles");
 
 // for auto refresh
 const path = require("path");
@@ -36,19 +34,13 @@ mongoose
     "mongodb+srv://admin:admin@cluster0.7eiw7ym.mongodb.net/?retryWrites=true&w=majority"
   )
   .then((res) => {
-    app.listen( process.env.PORT || port, () => {
+    app.listen(process.env.PORT || port, () => {
       console.log(`Example app listening on http://localhost:${port}`);
     });
   })
   .catch((err) => {
     console.log(err);
   });
-
-
-// use helmet
-  app.use(helmet()); 
-
-
 
 app.get("/", (req, res) => {
   res.redirect("/all-articles");
@@ -58,11 +50,8 @@ app.get("/add-new-article", (req, res) => {
   res.render("add-new-article", { myTitle: "ADD-NEW-ARTICLE" });
 });
 
-
 // all-articles PATH
-app.use(allArticlesRouter)
-
-
+app.use(allArticlesRouter);
 
 //  404
 app.use((req, res) => {

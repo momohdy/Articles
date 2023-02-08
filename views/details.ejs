@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+
+
 <html lang="en">
   <%- include("./partials/head.ejs") %>
 
@@ -6,19 +9,34 @@
     <%- include("./partials/header.ejs") %>
 
     <h1><%= objArticle.title %></h1>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <p style="margin: 50px; font-weight: bold"><%= objArticle.body %></p>
-    <br />
-    <br />
-    <br />
-    <br />
+<br>  
+<br>  
+  <p
+      style="
+        text-align: center;
+        padding: 10px 0;
+
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+
+        background-color: #fff;
+        color: #3d4a59;
+        font-size: 20px;
+        font-weight: bold;
+        border: 2px solid yellow;
+        border-radius: 17px;
+
+        padding: 15px;
+      "
+    >
+      <%= objArticle.body %>
+    </p>
+    <br>
+    <br>
 
     <button class="create" data-linkid="<%= objArticle._id %> ">
-      Delete Thie Article
+      Delete This Article
     </button>
 
     <br />
@@ -33,8 +51,8 @@
 
       // what is data ?
       // { mylink: "/all-articles" }
-      
-// delete article when click button 
+
+      // delete article when click button
 
       btnelement.addEventListener("click", (eo) => {
         fetch(`/all-articles/${articleId}`, { method: "DELETE" })
